@@ -33,7 +33,7 @@ namespace Military_Wor
             }
             set
             {
-                if (value<0 &&value<=49)
+                if (value>0 &&value<=49 &&value<Bulletcapacity)
                 {
                     _countbullets = value;
                 }
@@ -66,22 +66,38 @@ namespace Military_Wor
         {
             if (mood==true)
             {
-                Console.WriteLine(--Bulletcapacity);
+                Console.WriteLine(--CountBullets);
 
                
             }
             else
             {
-                Console.WriteLine(Bulletcapacity = 0);
+                Console.WriteLine(CountBullets = 0);
             }
                    
         }
         public int GetRemainBulletCount()
         {
-            return Bulletcapacity - CountBullets;
+            if (Bulletcapacity!=CountBullets)
+            {
+
+                return Bulletcapacity - CountBullets;
+            }
+            else
+            {
+                Console.WriteLine("Capacity full!");
+            }
+            return -1;
         }
-        public int Reload() {
-            return Bulletcapacity += GetRemainBulletCount();
+        public void Reload() {
+            if (Bulletcapacity!=CountBullets)
+            {
+                int remain = GetRemainBulletCount();
+                CountBullets += GetRemainBulletCount();
+                Console.WriteLine($"Added:{remain} bullets,ammo :{CountBullets}");
+                
+            }
+
         }
         public void ChangeFireMode()
         {

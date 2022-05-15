@@ -12,9 +12,11 @@ namespace Military_Wor
         {
             int bulletCapacity;
             int countBullets;
-            bool check = true;
+            Console.WriteLine("Please enter Check");
+            bool check;
             do
             {
+                check = Convert.ToBoolean(Console.ReadLine());
                 Console.WriteLine("Please Enter BulletCapacity");
                 bulletCapacity = Convert.ToInt32(Console.ReadLine());
             } while (bulletCapacity < 0 || bulletCapacity == 0||bulletCapacity>=51);
@@ -25,7 +27,7 @@ namespace Military_Wor
                 countBullets = Convert.ToInt32(Console.ReadLine());
                  
                 
-            } while (countBullets < 0 || countBullets > bulletCapacity || countBullets == 0||countBullets>=50);
+            } while (countBullets < 0 || countBullets >= bulletCapacity || countBullets == 0||countBullets>=50);
             Weapon weapon = new Weapon(bulletCapacity, countBullets, check);
             weapon.Bulletcapacity = bulletCapacity;
             weapon.Bulletcapacity = countBullets;
